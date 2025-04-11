@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Items List</title>
+    <link rel="stylesheet" th:href="@{/styles/items-list-styles.css}">
+</head>
+<body>
+<h1>Items List</h1>
+
+<div th:if="${username}">
+    Welcome, <span th:text="${username}">User</span> |
+    <a th:href="@{/logout}">Logout</a>
+</div>
+
+<div th:if="${isAdmin}">
+    <a th:href="@{/admin}">Admin Panel</a>
+</div>
+
+<div th:if="${message}" th:text="${message}"></div>
+
+<form action="/items-list" method="get">
+    <label for="brand">Filter by Brand for 2022:</label>
+    <select name="brand" id="brand">
+        <option value="">All Brands</option>
+        <option th:each="brand : ${brands}"
+                th:value="${brand}"
+                th:text="${brand}"
+                th:selected="${brand.name() == paramBrand}">
+        </option>
+    </select>
+    <button type="submit">Filter Items</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Year of Creation</th>
+        <th>Price</th>
+        <th th:if="${isAdmin}">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${itemsPage.content}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.brand}"></td>
+        <td th:text="${item.yearOfCreation}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:if="${isAdmin}">
+            <form th:action="@{/admin/delete}" method="post">
+                <input type="hidden" name="id" th:value="${item.id}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <ul>
+        <li th:if="${currentPage > 0}">
+            <a th:href="@{/items-list(page=${currentPage - 1}, size=${pageSize}, sort=${sort}, brand=${paramBrand})}">Previous</a>
+        </li>
+        <li th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+            th:if="${i == currentPage}">
+            <span th:text="${i + 1}"></span>
+        </li>
+        <li th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+            th:unless="${i == currentPage}">
+            <a th:href="@{/items-list(page=${i}, size=${pageSize}, sort=${sort}, brand=${paramBrand})}"
+               th:text="${i + 1}"></a>
+        </li>
+        <li th:if="${currentPage < totalPages - 1}">
+            <a th:href="@{/items-list(page=${currentPage + 1}, size=${pageSize}, sort=${sort}, brand=${paramBrand})}">Next</a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

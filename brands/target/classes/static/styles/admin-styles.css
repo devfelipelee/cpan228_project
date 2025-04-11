@@ -1,0 +1,129 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: goldenrod;
+    font-family: 'Helvetica', serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: goldenrod;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 28px;
+    color: goldenrod;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+a {
+    color: goldenrod;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+a:hover {
+    color: lightgray;
+}
+
+div {
+    margin-bottom: 40px;
+}
+
+/* Admin panel links */
+.admin-links {
+    margin-bottom: 30px;
+}
+
+.admin-links a {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+.admin-links a:hover {
+    background-color: goldenrod;
+    color: black;
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #202020;
+}
+
+table, th, td {
+    border: 1px solid goldenrod;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: goldenrod;
+    font-weight: bold;
+    padding: 10px;
+}
+
+td {
+    background-color: #202020;
+    color: goldenrod;
+    padding: 10px;
+}
+
+/* Delete button inside table */
+button {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Logout link styling */
+.logout-link {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.logout-link:hover {
+    background-color: goldenrod;
+    color: black;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .admin-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .admin-links a {
+        margin: 10px 0;
+    }
+}

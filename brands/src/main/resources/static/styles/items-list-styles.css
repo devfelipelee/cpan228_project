@@ -1,0 +1,156 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: goldenrod;
+    font-family: 'Helvetica', serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: goldenrod;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+form {
+    font-family: 'Helvetica', serif;
+    text-align: left;
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto 30px auto;
+}
+
+form label {
+    color: goldenrod;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+form select, form button {
+    background-color: #333;
+    color: goldenrod;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    width: 100%;
+    font-size: 16px;
+}
+
+form button {
+    background-color: lightgray;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #e0e0e0;
+}
+
+table {
+    width: 80%;
+    margin: 30px auto 0;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid goldenrod;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: goldenrod;
+    font-weight: bold;
+    padding: 10px;
+}
+
+td {
+    background-color: #202020;
+    color: goldenrod;
+    padding: 10px;
+}
+
+button {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+.flash-message {
+    color: goldenrod;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* added some styling for the page numbers so they fit in with the rest of the design */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+.pagination a {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 16px;
+    margin: 0 5px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination .active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    color: #333;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination .prev, .pagination .next {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .pagination {
+        flex-direction: column;
+    }
+
+    .pagination a {
+        padding: 6px 12px;
+        margin: 5px 0;
+    }
+}

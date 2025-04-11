@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Item Management</title>
+  <link rel="stylesheet" th:href="@{/styles/item-styles.css}">
+</head>
+<body>
+
+<img th:src="@{/images/image.png}" alt="Logo">
+
+<h2>ITEM MANAGEMENT</h2>
+
+<div th:if="${message}" th:text="${message}"></div>
+
+<div th:if="${errors}">
+  <ul>
+    <li th:each="error : ${errors}" th:text="${error}"></li>
+  </ul>
+</div>
+
+<form th:action="@{/items}" method="post" th:object="${newItem}">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}">
+  </div>
+
+  <div>
+    <label for="yearOfCreation">Year of Creation:</label>
+    <input type="number" id="yearOfCreation" th:field="*{yearOfCreation}">
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" step="0.01" th:field="*{price}">
+  </div>
+
+  <div>
+    <label for="brand">Brand:</label>
+    <select id="brand" th:field="*{brand}">
+      <option value="">Select a brand</option>
+      <option th:each="brand : ${brands}" th:value="${brand}" th:text="${brand}"></option>
+    </select>
+  </div>
+
+  <button type="submit">Add Item</button>
+</form>
+
+</body>
+</html>

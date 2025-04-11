@@ -1,0 +1,68 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: goldenrod;
+    font-family: 'Helvetica', serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 36px;
+    color: goldenrod;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 30px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+form label {
+    color: goldenrod;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: #222;
+    color: goldenrod;
+}
+
+form button {
+    background-color: goldenrod;
+    color: black;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+form button:hover {
+    background-color: #e0e0e0;
+}
