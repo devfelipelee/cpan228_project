@@ -3,8 +3,11 @@
 # Overview
 
 A Spring Boot application for managing luxury fashion items with:
+
 User authentication (Admin/Employee/User roles)
+
 Distribution center integration
+
 Item inventory management
 
 # Projects
