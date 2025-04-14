@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
 public class DistributionCenterService {
+
     @Value("${distribution.center.base-url}")
     private String baseUrl;
 
@@ -39,21 +41,27 @@ public class DistributionCenterService {
 
     public boolean requestItemFromDistributionCenter(ItemRequest request) {
         try {
+            HttpEntity<ItemRequest> requestEntity = new HttpEntity<>(request, createAuthHeaders());
             ResponseEntity<Void> response = restTemplate.exchange(
                     baseUrl + "/distribution-centers/request-item",
                     HttpMethod.POST,
-                    new HttpEntity<>(request, createAuthHeader().getHeaders()),
+                    requestEntity,
                     Void.class
             );
             return response.getStatusCode().is2xxSuccessful();
-        } catch (Exception e) {
+        } catch (RestClientException e) {
             return false;
         }
     }
 
-    private HttpEntity<String> createAuthHeader() {
+    private HttpHeaders createAuthHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setBasicAuth(username, password);
-        return new HttpEntity<>(headers);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return headers;
+    }
+
+    private HttpEntity<String> createAuthHeader() {
+        return new HttpEntity<>(createAuthHeaders());
     }
 }
